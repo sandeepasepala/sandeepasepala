@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandeepa Sepala - Cybersecurity Specialist</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyan: {
+                            DEFAULT: '#00ffff',
+                            light: 'rgba(0, 255, 255, 0.1)',
+                            glow: 'rgba(0, 255, 255, 0.3)',
+                        },
+                        purple: {
+                            DEFAULT: '#a855f7',
+                            light: 'rgba(168, 85, 247, 0.2)',
+                        }
+                    },
+                    animation: {
+                        'slide-down': 'slideDown 0.5s ease',
+                        'glow': 'glow 2s ease-in-out infinite',
+                        'glow-pulse': 'glowPulse 3s infinite',
+                        'pulse-slow': 'pulse 2s infinite',
+                        'gradient-shift': 'gradientShift 3s ease infinite',
+                        'rotate-slow': 'rotate 20s linear infinite',
+                        'float-circle': 'floatCircle 3s ease-in-out infinite',
+                        'float-particle': 'floatParticle 20s infinite',
+                        'fade-in-left': 'fadeInLeft 1s ease forwards',
+                        'fade-in-right': 'fadeInRight 1s ease forwards',
+                        'fade-in-up': 'fadeInUp 0.8s ease forwards',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'sparkle': 'sparkle 1.5s linear infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                    },
+                    keyframes: {
+                        slideDown: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(0)' },
+                        },
+                        glow: {
+                            '0%, 100%': { filter: 'drop-shadow(0 0 5px #00ffff)' },
+                            '50%': { filter: 'drop-shadow(0 0 20px #00ffff)' },
+                        },
+                        glowPulse: {
+                            '0%, 100%': { boxShadow: '0 0 5px rgba(0, 255, 255, 0.5)' },
+                            '50%': { boxShadow: '0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(168, 85, 247, 0.4)' },
+                        },
+                        gradientShift: {
+                            '0%, 100%': { filter: 'hue-rotate(0deg)' },
+                            '50%': { filter: 'hue-rotate(30deg)' },
+                        },
+                        rotate: {
+                            from: { transform: 'rotate(0deg)' },
+                            to: { transform: 'rotate(360deg)' },
+                        },
+                        floatCircle: {
+                            '0%, 100%': { transform: 'translate(-50%, -50%) translateY(0)' },
+                            '50%': { transform: 'translate(-50%, -50%) translateY(-10px)' },
+                        },
+                        floatParticle: {
+                            '0%, 100%': { transform: 'translateY(0) translateX(0)' },
+                            '25%': { transform: 'translateY(-100px) translateX(50px)' },
+                            '50%': { transform: 'translateY(-200px) translateX(-50px)' },
+                            '75%': { transform: 'translateY(-100px) translateX(100px)' },
+                        },
+                        fadeInLeft: {
+                            from: { opacity: '0', transform: 'translateX(-50px)' },
+                            to: { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        fadeInRight: {
+                            from: { opacity: '0', transform: 'translateX(50px)' },
+                            to: { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        fadeInUp: {
+                            from: { opacity: '0', transform: 'translateY(30px)' },
+                            to: { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        sparkle: {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '100%': { backgroundPosition: '200% 50%' },
+                        },
+                        shimmer: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(100%)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[linear-gradient(135deg,#0a1f0a_0%,#1a0033_50%,#000a1a_100%)] text-white font-['Segoe_UI',Tahoma,Geneva,Verdana,sans-serif] overflow-x-hidden">
+    <!-- Animated Background Particles -->
+    <div class="fixed inset-0 z-[1] pointer-events-none" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-[#0a1f0a]/80 backdrop-blur-xl z-[1000] px-8 py-4 border-b border-cyan/30 animate-slide-down transition-all duration-300" id="main-nav">
+        <div class="max-w-[1200px] mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold bg-[linear-gradient(45deg,#00ffff,#a855f7)] bg-clip-text text-transparent animate-glow flex items-center gap-2">
+                <span class="w-8 h-8 bg-cyan rounded-lg flex items-center justify-center text-black text-xl">S</span>
+                Sandeepa Sepala
+            </div>
+            <ul class="hidden md:flex gap-8 list-none">
+                <li><a href="#home" class="text-gray-300 hover:text-cyan no-underline transition-all duration-300 relative group">Home<span class="absolute bottom-[-5px] left-0 w-0 h-[2px] bg-cyan transition-all duration-300 group-hover:w-full"></span></a></li>
+                <li><a href="#skills" class="text-gray-300 hover:text-cyan no-underline transition-all duration-300 relative group">Skills<span class="absolute bottom-[-5px] left-0 w-0 h-[2px] bg-cyan transition-all duration-300 group-hover:w-full"></span></a></li>
+                <li><a href="#projects" class="text-gray-300 hover:text-cyan no-underline transition-all duration-300 relative group">Projects<span class="absolute bottom-[-5px] left-0 w-0 h-[2px] bg-cyan transition-all duration-300 group-hover:w-full"></span></a></li>
+                <li><a href="#rankings" class="text-gray-300 hover:text-cyan no-underline transition-all duration-300 relative group">Rankings<span class="absolute bottom-[-5px] left-0 w-0 h-[2px] bg-cyan transition-all duration-300 group-hover:w-full"></span></a></li>
+                <li><a href="#education" class="text-gray-300 hover:text-cyan no-underline transition-all duration-300 relative group">Education</a></li>
+                <li><a href="#contact" class="text-gray-300 hover:text-cyan no-underline transition-all duration-300 relative group">Contact</a></li>
+            </ul>
+            <button class="md:hidden text-cyan">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative z-[2] p-8" id="home">
+        <div class="max-w-[1200px] w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center pt-20">
+            <div class="animate-fade-in-left">
+                <div class="inline-block px-4 py-2 bg-cyan/10 border border-cyan/50 rounded-full text-cyan text-sm mb-6 animate-pulse-slow backdrop-blur-sm">
+                    🚀 Cybersecurity Specialist & Full Stack Developer
+                </div>
+                <h1 class="text-5xl md:text-[5rem] font-bold mb-6 leading-tight bg-[linear-gradient(45deg,#00ffff,#a855f7,#00ffff)] bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-shift">
+                    Sandeepa Sepala
+                </h1>
+                <p class="text-[1.2rem] text-gray-400 mb-10 leading-relaxed max-w-xl">
+                    Security researcher and developer focused on building secure digital ecosystems. Specialized in <span class="text-cyan">Penetration Testing</span>, <span class="text-purple">Full-Stack Development</span>, and <span class="text-green-400">Security Automation</span>.
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <a href="https://github.com/sandeepasepala" target="_blank" class="px-10 py-4 rounded-xl font-bold text-black bg-cyan hover:bg-white transition-all duration-500 flex items-center gap-3 group relative overflow-hidden shadow-[0_0_20px_rgba(0,255,255,0.4)]">
+                        <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                        <span class="relative z-10 flex items-center gap-3 group-hover:text-black transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            View GitHub
+                        </span>
+                    </a>
+                    <a href="#contact" class="px-10 py-4 rounded-xl font-bold text-white border-2 border-cyan/50 hover:border-cyan transition-all duration-300 flex items-center gap-3 backdrop-blur-md">
+                        Let's Talk
+                    </a>
+                </div>
+            </div>
+            <div class="relative animate-fade-in-right hidden md:block">
+                <div class="relative w-[450px] h-[450px] mx-auto">
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan/20 to-purple/20 animate-rotate-slow blur-2xl"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-[#0a1f0a]/40 backdrop-blur-xl rounded-2xl flex items-center justify-center border border-cyan/30 shadow-[0_0_50px_rgba(0,255,255,0.2)] animate-float-circle overflow-hidden">
+                        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+                        <svg class="w-40 h-40 text-cyan drop-shadow-[0_0_20px_#00ffff]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                    </div>
+                    <!-- Decorative Elements -->
+                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-purple/30 rounded-full blur-xl animate-pulse"></div>
+                    <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-cyan/30 rounded-full blur-xl animate-pulse-slow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Arsenal (Skills Separated) -->
+    <section class="py-20 px-8 relative z-[2]" id="skills">
+        <div class="max-w-[1200px] mx-auto">
+            <h2 class="text-center text-4xl font-bold mb-16 bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent opacity-0 translate-y-10 animate-on-scroll">Technical Arsenal</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Programming Card -->
+                <div class="bg-gray-900/40 border border-cyan/20 p-8 rounded-2xl backdrop-blur-md opacity-0 translate-y-10 animate-on-scroll group hover:border-cyan/50 transition-all duration-500">
+                    <h3 class="text-xl font-bold text-cyan mb-6 flex items-center gap-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                        Technical Skills
+                    </h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-cyan rounded-full"></span> PHP, Python, SQL, JavaScript</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-cyan rounded-full"></span> HTML, CSS, React, Tailwind</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-cyan rounded-full"></span> Node.js, Apache, MariaDB</li>
+                    </ul>
+                </div>
+                <!-- Cybersecurity Card -->
+                <div class="bg-gray-900/40 border border-purple/20 p-8 rounded-2xl backdrop-blur-md opacity-0 translate-y-10 animate-on-scroll group hover:border-purple/50 transition-all duration-500" style="transition-delay: 100ms">
+                    <h3 class="text-xl font-bold text-purple mb-6 flex items-center gap-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        Cybersecurity
+                    </h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple rounded-full"></span> Web App Pentesting</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple rounded-full"></span> Vulnerability Analysis</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple rounded-full"></span> Burp Suite, Wireshark, Nmap, SQLmap</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple rounded-full"></span> Threat Analysis</li>
+                    </ul>
+                </div>
+                <!-- Infrastructure Card -->
+                <div class="bg-gray-900/40 border border-green-500/20 p-8 rounded-2xl backdrop-blur-md opacity-0 translate-y-10 animate-on-scroll group hover:border-green-500/50 transition-all duration-500" style="transition-delay: 200ms">
+                    <h3 class="text-xl font-bold text-green-400 mb-6 flex items-center gap-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+                        Cloud & Infrastructure
+                    </h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> AWS, Azure, Office365</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> Linux (Kali, Ubuntu)</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> Docker, Ansible, N8N</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> VPN (Xray, VPS)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="py-20 px-8 relative z-[2]" id="projects">
+        <div class="max-w-[1200px] mx-auto">
+            <h2 class="text-center text-4xl font-bold mb-16 bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent opacity-0 translate-y-10 animate-on-scroll">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-6 flex flex-col opacity-0 translate-y-10 animate-on-scroll hover:border-cyan/50 transition-all group">
+                    <div class="h-40 bg-gradient-to-br from-cyan/10 to-purple/10 rounded-xl mb-6 flex items-center justify-center overflow-hidden text-cyan drop-shadow-[0_0_10px_#00ffff]">
+                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Web Finder & Vulnerability Tool</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Custom reconnaissance tool for HTML path discovery and vulnerability identification using Python. (In progress)</p>
+                    <a href="https://github.com/sandeepasepala" target="_blank" class="w-full py-3 bg-cyan text-black font-bold rounded-xl text-center hover:bg-white transition-colors shadow-[0_5px_15px_rgba(0,255,255,0.3)]">View Project</a>
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-6 flex flex-col opacity-0 translate-y-10 animate-on-scroll hover:border-cyan/50 transition-all group" style="transition-delay: 100ms">
+                    <div class="h-40 bg-gradient-to-br from-purple/10 to-cyan/10 rounded-xl mb-6 flex items-center justify-center text-purple drop-shadow-[0_0_10px_#a855f7]">
+                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Advanced Nmap Scanner</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Enhanced Nmap-based IP and web scanning framework to automate reconnaissance.</p>
+                    <a href="https://github.com/sandeepasepala" target="_blank" class="w-full py-3 bg-purple text-white font-bold rounded-xl text-center hover:bg-cyan hover:text-black transition-all shadow-[0_5px_15px_rgba(168,85,247,0.3)]">View Project</a>
+                </div>
+                <!-- Project 3 -->
+                <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-6 flex flex-col opacity-0 translate-y-10 animate-on-scroll hover:border-cyan/50 transition-all group" style="transition-delay: 200ms">
+                    <div class="h-40 bg-gradient-to-br from-green-500/10 to-cyan/10 rounded-xl mb-6 flex items-center justify-center text-green-500 drop-shadow-[0_0_10px_#22c55e]">
+                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">SQLmap GUI Utility</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Graphical interface for SQLmap to simplify database enumeration during testing.</p>
+                    <a href="https://github.com/sandeepasepala" target="_blank" class="w-full py-3 bg-green-600 text-white font-bold rounded-xl text-center hover:bg-white hover:text-black transition-all shadow-[0_5px_15px_rgba(34,197,94,0.3)]">View Project</a>
+                </div>
+                <!-- Project 4 -->
+                <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-6 flex flex-col opacity-0 translate-y-10 animate-on-scroll hover:border-cyan/50 transition-all group">
+                    <div class="h-40 bg-gradient-to-br from-blue-500/10 to-purple/10 rounded-xl mb-6 flex items-center justify-center text-blue-500 drop-shadow-[0_0_10px_#3b82f6]">
+                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">AI-Assisted Automation System</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">AI-driven system to automate security workflows and operational tasks. (In progress)</p>
+                    <a href="https://github.com/sandeepasepala" target="_blank" class="w-full py-3 bg-blue-600 text-white font-bold rounded-xl text-center hover:bg-cyan hover:text-black transition-all shadow-[0_5px_15px_rgba(59,130,246,0.3)]">View Project</a>
+                </div>
+                <!-- Project 5 -->
+                <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-6 flex flex-col opacity-0 translate-y-10 animate-on-scroll hover:border-cyan/50 transition-all group" style="transition-delay: 100ms">
+                    <div class="h-40 bg-gradient-to-br from-red-500/10 to-purple/10 rounded-xl mb-6 flex items-center justify-center text-red-500 drop-shadow-[0_0_10px_#ef4444]">
+                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Linux VPS VPN (Xray)</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Secure tunneling and traffic optimization infrastructure on Linux VPS.</p>
+                    <a href="https://github.com/sandeepasepala" target="_blank" class="w-full py-3 bg-red-600 text-white font-bold rounded-xl text-center hover:bg-white hover:text-black transition-all shadow-[0_5px_15px_rgba(239,68,68,0.3)]">View Project</a>
+                </div>
+                <!-- Project 6 -->
+                <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-6 flex flex-col opacity-0 translate-y-10 animate-on-scroll hover:border-cyan/50 transition-all group" style="transition-delay: 200ms">
+                    <div class="h-40 bg-gradient-to-br from-orange-500/10 to-yellow-500/10 rounded-xl mb-6 flex items-center justify-center text-orange-500 drop-shadow-[0_0_10px_#f97316]">
+                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Infrastructure Automation</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Automated Linux server environments using Docker, Ansible, and n8n.</p>
+                    <a href="https://github.com/sandeepasepala" target="_blank" class="w-full py-3 bg-orange-600 text-white font-bold rounded-xl text-center hover:bg-white hover:text-black transition-all shadow-[0_5px_15px_rgba(249,115,22,0.3)]">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Language Proficiency Section -->
+    <section class="py-20 px-8 relative z-[2] bg-black/20" id="proficiency">
+        <div class="max-w-[800px] mx-auto">
+            <h2 class="text-center text-4xl font-bold mb-16 bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent opacity-0 translate-y-10 animate-on-scroll">Human Language Status</h2>
+            <div class="space-y-10">
+                <!-- Sinhala -->
+                <div class="opacity-0 translate-y-10 animate-on-scroll">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-bold text-gray-300">Sinhala (Native)</span>
+                        <span class="text-cyan">100%</span>
+                    </div>
+                    <div class="w-full h-4 bg-gray-800 rounded-full overflow-hidden relative">
+                        <div class="h-full bg-gradient-to-r from-cyan to-blue-500 rounded-full relative animate-sparkle bg-[length:200%_100%] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent)]" style="width: 100%">
+                            <div class="absolute inset-0 bg-cyan/30 animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- English -->
+                <div class="opacity-0 translate-y-10 animate-on-scroll" style="transition-delay: 100ms">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-bold text-gray-300">English (Professional)</span>
+                        <span class="text-cyan">90%</span>
+                    </div>
+                    <div class="w-full h-4 bg-gray-800 rounded-full overflow-hidden relative">
+                        <div class="h-full bg-gradient-to-r from-cyan to-purple rounded-full relative animate-sparkle bg-[length:200%_100%] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent)]" style="width: 90%">
+                            <div class="absolute inset-0 bg-cyan/30 animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Korean -->
+                <div class="opacity-0 translate-y-10 animate-on-scroll" style="transition-delay: 200ms">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-bold text-gray-300">Korean (Basic)</span>
+                        <span class="text-cyan">40%</span>
+                    </div>
+                    <div class="w-full h-4 bg-gray-800 rounded-full overflow-hidden relative">
+                        <div class="h-full bg-gradient-to-r from-cyan to-red-500 rounded-full relative animate-sparkle bg-[length:200%_100%] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent)]" style="width: 40%">
+                            <div class="absolute inset-0 bg-cyan/30 animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rankings & Badges Section -->
+    <section class="py-20 px-8 relative z-[2]" id="rankings">
+        <div class="max-w-[1200px] mx-auto">
+            <h2 class="text-center text-4xl font-bold mb-16 bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent opacity-0 translate-y-10 animate-on-scroll">Professional Rankings & Badges</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Rankings -->
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-cyan mb-8 flex items-center gap-2">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        Global Rankings
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- TryHackMe -->
+                        <div class="bg-gray-900/50 border border-gray-800 p-6 rounded-2xl hover:border-cyan/50 transition-all group animate-on-scroll opacity-0 translate-y-10">
+                            <div class="text-purple font-bold text-sm mb-1">TryHackMe</div>
+                            <div class="text-2xl font-bold text-white group-hover:text-cyan transition-colors">Top 1%</div>
+                            <div class="text-xs text-gray-500 mt-2">Global Security Researcher</div>
+                        </div>
+                        <!-- HackTheBox -->
+                        <div class="bg-gray-900/50 border border-gray-800 p-6 rounded-2xl hover:border-cyan/50 transition-all group animate-on-scroll opacity-0 translate-y-10" style="transition-delay: 100ms">
+                            <div class="text-green-500 font-bold text-sm mb-1">HackTheBox</div>
+                            <div class="text-2xl font-bold text-white group-hover:text-green-400 transition-colors">Pro Hacker</div>
+                            <div class="text-xs text-gray-500 mt-2">Ranked Laboratory Expert</div>
+                        </div>
+                        <!-- HackerOne -->
+                        <div class="bg-gray-900/50 border border-gray-800 p-6 rounded-2xl hover:border-cyan/50 transition-all group animate-on-scroll opacity-0 translate-y-10" style="transition-delay: 200ms">
+                            <div class="text-blue-500 font-bold text-sm mb-1">HackerOne</div>
+                            <div class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Bug Hunter</div>
+                            <div class="text-xs text-gray-500 mt-2">Verified Security Researcher</div>
+                        </div>
+                        <!-- Cisco Netacad -->
+                        <div class="bg-gray-900/50 border border-gray-800 p-6 rounded-2xl hover:border-cyan/50 transition-all group animate-on-scroll opacity-0 translate-y-10" style="transition-delay: 300ms">
+                            <div class="text-cyan font-bold text-sm mb-1">Cisco Netacad</div>
+                            <div class="text-2xl font-bold text-white group-hover:text-cyan transition-colors">Expert</div>
+                            <div class="text-xs text-gray-500 mt-2">Networking & Security</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Badges -->
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-purple mb-8 flex items-center gap-2">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+                        Cisco Netacad Badges
+                    </h3>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="w-24 h-24 bg-gray-900/80 border border-gray-800 rounded-xl flex items-center justify-center p-2 group hover:scale-110 transition-all hover:border-cyan animate-on-scroll opacity-0 translate-y-10">
+                            <img src="https://images.credly.com/size/340x340/images/68378f88-466d-495c-9407-7e61f2f09951/NetworkEssentials.png" alt="Networking" class="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all">
+                        </div>
+                        <div class="w-24 h-24 bg-gray-900/80 border border-gray-800 rounded-xl flex items-center justify-center p-2 group hover:scale-110 transition-all hover:border-cyan animate-on-scroll opacity-0 translate-y-10" style="transition-delay: 100ms">
+                            <img src="https://images.credly.com/size/340x340/images/29729606-f6d1-4682-9988-c70014b2d355/CyberEssentials.png" alt="Cybersecurity" class="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all">
+                        </div>
+                        <div class="w-24 h-24 bg-gray-900/80 border border-gray-800 rounded-xl flex items-center justify-center p-2 group hover:scale-110 transition-all hover:border-cyan animate-on-scroll opacity-0 translate-y-10" style="transition-delay: 200ms">
+                            <img src="https://images.credly.com/size/340x340/images/5d23349c-383f-4e09-847e-526978518974/PythonEssentials.png" alt="Python" class="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all">
+                        </div>
+                        <div class="w-24 h-24 bg-gray-900/80 border border-gray-800 rounded-xl flex items-center justify-center p-2 group hover:scale-110 transition-all hover:border-cyan animate-on-scroll opacity-0 translate-y-10" style="transition-delay: 300ms">
+                            <img src="https://images.credly.com/size/340x340/images/2816694f-4d56-43f1-b1e6-2d5725790c6a/EthicalHacker.png" alt="Ethical Hacker" class="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications Section -->
+    <section class="py-20 px-8 relative z-[2]" id="education">
+        <div class="max-w-[1000px] mx-auto">
+            <h2 class="text-center text-4xl font-bold mb-16 bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent opacity-0 translate-y-10 animate-on-scroll">Education & Certifications</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="bg-gray-900/40 border-l-4 border-cyan p-6 rounded-r-2xl opacity-0 translate-y-10 animate-on-scroll hover:translate-x-2 transition-all backdrop-blur-sm">
+                    <p class="text-white font-semibold">G.C.E O/L (A-3, B-4, C-2)</p>
+                </div>
+                <div class="bg-gray-900/40 border-l-4 border-cyan p-6 rounded-r-2xl opacity-0 translate-y-10 animate-on-scroll hover:translate-x-2 transition-all backdrop-blur-sm">
+                    <p class="text-white font-semibold">CCNA - University of Moratuwa, Cisco Networking Academy</p>
+                </div>
+                <div class="bg-gray-900/40 border-l-4 border-cyan p-6 rounded-r-2xl opacity-0 translate-y-10 animate-on-scroll hover:translate-x-2 transition-all backdrop-blur-sm">
+                    <p class="text-white font-semibold">Azure, Microsoft Server, Office 365 - NextGen Campus</p>
+                </div>
+                <div class="bg-gray-900/40 border-l-4 border-cyan p-6 rounded-r-2xl opacity-0 translate-y-10 animate-on-scroll hover:translate-x-2 transition-all backdrop-blur-sm">
+                    <p class="text-white font-semibold">Intensive Training on Windows Server and Network Engineering - NextGen Campus</p>
+                </div>
+                <div class="bg-gray-900/40 border-l-4 border-cyan p-6 rounded-r-2xl opacity-0 translate-y-10 animate-on-scroll hover:translate-x-2 transition-all backdrop-blur-sm">
+                    <p class="text-white font-semibold">Cloud Foundations for Aspiring IT Professionals - NextGen Campus</p>
+                </div>
+                <div class="bg-gray-900/40 border-l-4 border-cyan p-6 rounded-r-2xl opacity-0 translate-y-10 animate-on-scroll hover:translate-x-2 transition-all backdrop-blur-sm">
+                    <p class="text-white font-semibold">ACE Multicloud Network Associate - Aviatrix</p>
+                </div>
+                <div class="bg-gray-900/40 border-l-4 border-cyan p-6 rounded-r-2xl opacity-0 translate-y-10 animate-on-scroll hover:translate-x-2 transition-all backdrop-blur-sm">
+                    <p class="text-white font-semibold">Python Essentials - Cisco Networking Academy</p>
+                </div>
+                <div class="bg-gray-900/40 border-l-4 border-cyan p-6 rounded-r-2xl opacity-0 translate-y-10 animate-on-scroll hover:translate-x-2 transition-all backdrop-blur-sm">
+                    <p class="text-white font-semibold">Ethical Hacker - Cisco Networking Academy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Showcase CTA -->
+    <section class="py-20 px-8 relative z-[2] overflow-hidden">
+        <div class="max-w-[1200px] mx-auto bg-gradient-to-br from-[#0a1f0a] to-[#1a0033] rounded-[2rem] p-12 border border-cyan/20 text-center relative group">
+            <div class="absolute inset-0 bg-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">Want to see more of my work?</h2>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">Explore my full repository of security tools, web applications, and automation scripts on GitHub.</p>
+            <a href="https://github.com/sandeepasepala?tab=repositories" target="_blank" class="inline-flex items-center gap-4 px-12 py-5 bg-white text-black font-bold rounded-2xl hover:bg-cyan hover:scale-105 transition-all duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.3)]">
+                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                Explore GitHub Projects
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <footer class="bg-black/40 border-t border-cyan/20 pt-20 pb-10 px-8 relative z-[2]" id="contact">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2 text-center md:text-left">
+                    <div class="text-3xl font-bold bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent mb-6">Sandeepa Sepala</div>
+                    <p class="text-gray-400 mb-8 max-w-sm mx-auto md:mx-0">Building the future of secure technology through innovative development and rigorous security research.</p>
+                    <div class="flex justify-center md:justify-start gap-4">
+                        <a href="https://linkedin.com/in/sandeepasepala" target="_blank" class="w-10 h-10 rounded-lg bg-gray-900 flex items-center justify-center text-gray-400 hover:text-cyan hover:bg-gray-800 transition-all"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                        <a href="https://github.com/sandeepasepala" target="_blank" class="w-10 h-10 rounded-lg bg-gray-900 flex items-center justify-center text-gray-400 hover:text-cyan hover:bg-gray-800 transition-all"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                        <a href="mailto:sandeepasepala@gmail.com" class="w-10 h-10 rounded-lg bg-gray-900 flex items-center justify-center text-gray-400 hover:text-cyan hover:bg-gray-800 transition-all"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="#home" class="hover:text-cyan transition-colors">Home</a></li>
+                        <li><a href="#skills" class="hover:text-cyan transition-colors">Skills</a></li>
+                        <li><a href="#projects" class="hover:text-cyan transition-colors">Projects</a></li>
+                        <li><a href="#rankings" class="hover:text-cyan transition-colors">Rankings</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Contact Info</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>sandeepasepala@gmail.com</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Habarana, Sri Lanka</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2026 Sandeepa Sepala. All rights reserved. Professional Portfolio v2.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Detached Scripts -->
+    <script src="index.js"></script>
+</body>
+</html>
