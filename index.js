@@ -1,103 +1,156 @@
-// Create animated particles for the background
-function createParticles() {
-    const particlesContainer = document.getElementById('particles');
-    if (!particlesContainer) return;
+/**
+ * Sandeepa Sepala - Portfolio Script
+ * Cleaned and modularized version
+ */
+
+// Configuration Constants
+const CONFIG = {
+    particlesCount: 50,
+    scrollThreshold: 50,
+    animationDelay: 100,
+    badgesScrollSpeed: '25s', // Slower, smoother scroll
+};
+
+/**
+ * Background Particle System
+ */
+function initParticles() {
+    const container = document.getElementById('particles');
+    if (!container) return;
     
-    for (let i = 0; i < 50; i++) {
+    const fragment = document.createDocumentFragment();
+    for (let i = 0; i < CONFIG.particlesCount; i++) {
         const particle = document.createElement('div');
-        particle.className = 'absolute bg-[#00ffff] rounded-full animate-float-particle opacity-30 shadow-[0_0_10px_#00ffff] pointer-events-none';
+        particle.className = 'absolute bg-cyan rounded-full animate-float-particle opacity-30 shadow-[0_0_10px_#00ffff] pointer-events-none';
         
         const size = Math.random() * 5 + 2;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${Math.random() * 100}%`;
-        particle.style.top = `${Math.random() * 100}%`;
-        particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
-        particle.style.animationDelay = `${Math.random() * 5}s`;
-        
-        particlesContainer.appendChild(particle);
-    }
-}
-
-// Create sparkles for proficiency bars
-function createSparklesForBars() {
-    const bars = document.querySelectorAll('.animate-sparkle');
-    bars.forEach(bar => {
-        setInterval(() => {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'absolute w-1 h-1 bg-white rounded-full pointer-events-none animate-ping';
-            sparkle.style.left = `${Math.random() * 100}%`;
-            sparkle.style.top = `${Math.random() * 100}%`;
-            sparkle.style.opacity = Math.random();
-            bar.appendChild(sparkle);
-            setTimeout(() => sparkle.remove(), 1000);
-        }, 200);
-    });
-}
-
-// Nav scroll effect
-function setupNavScroll() {
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.classList.add('bg-[#0a1f0a]/95', 'py-2', 'shadow-lg', 'border-cyan/50');
-            nav.classList.remove('bg-[#0a1f0a]/80', 'py-4', 'border-cyan/30');
-        } else {
-            nav.classList.remove('bg-[#0a1f0a]/95', 'py-2', 'shadow-lg', 'border-cyan/50');
-            nav.classList.add('bg-[#0a1f0a]/80', 'py-4', 'border-cyan/30');
-        }
-    });
-}
-
-// Smooth scroll
-function setupSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+        Object.assign(particle.style, {
+            width: `${size}px`,
+            height: `${size}px`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDuration: `${Math.random() * 10 + 10}s`,
+            animationDelay: `${Math.random() * 5}s`
         });
-    });
+        
+        fragment.appendChild(particle);
+    }
+    container.appendChild(fragment);
 }
 
-// Intersection Observer for scroll animations
-function setupScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+/**
+ * Profile Photo Unlock Logic
+ */
+function initProfileUnlock() {
+    const elements = {
+        photo: document.getElementById('profile-photo'),
+        guard: document.getElementById('guard-icon'),
+        text: document.getElementById('unlock-text'),
+        container: document.getElementById('profile-photo-container')
     };
 
+    if (!elements.photo || !elements.guard) return;
+
+    let isUnlocked = false;
+
+    elements.container.addEventListener('click', () => {
+        if (isUnlocked) return;
+        isUnlocked = true;
+
+        // Visual feedback
+        if (elements.text) elements.text.style.display = 'none';
+        
+        // Trigger Jump Animation
+        elements.guard.classList.add('animate-guard-jump');
+        
+        // Finalize state
+        setTimeout(() => {
+            elements.guard.style.display = 'none';
+            elements.photo.classList.remove('grayscale');
+            elements.photo.classList.add('scale-100');
+        }, 1000);
+    });
+}
+
+/**
+ * Progress Bar Sparkles
+ */
+function createSparkles(container) {
+    const interval = setInterval(() => {
+        if (!container.isConnected) {
+            clearInterval(interval);
+            return;
+        }
+        const sparkle = document.createElement('div');
+        sparkle.className = 'absolute w-1 h-1 bg-white rounded-full pointer-events-none animate-ping';
+        Object.assign(sparkle.style, {
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            opacity: Math.random()
+        });
+        container.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 1000);
+    }, 200);
+}
+
+/**
+ * Scroll Management (Nav & Animations)
+ */
+function initScrollEffects() {
+    const nav = document.getElementById('main-nav');
+    
+    // Navigation appearance
+    window.addEventListener('scroll', () => {
+        const isScrolled = window.scrollY > CONFIG.scrollThreshold;
+        nav.classList.toggle('bg-[#0a1f0a]/95', isScrolled);
+        nav.classList.toggle('py-2', isScrolled);
+        nav.classList.toggle('shadow-lg', isScrolled);
+        nav.classList.toggle('border-cyan/50', isScrolled);
+        nav.classList.toggle('bg-[#0a1f0a]/80', !isScrolled);
+        nav.classList.toggle('py-4', !isScrolled);
+    });
+
+    // Intersection Observer for scroll-in animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-fade-in-up');
-                entry.target.classList.remove('opacity-0', 'translate-y-10', 'translate-y-[30px]');
-                // Trigger width animation for progress bars if needed (handled by tailwind usually, but we can ensure it here)
+                entry.target.classList.remove('opacity-0', 'translate-y-10');
+                
+                // Specific logic for proficiency sparkles
                 if (entry.target.id === 'proficiency') {
-                    createSparklesForBars();
+                    entry.target.querySelectorAll('.animate-sparkle').forEach(createSparkles);
                 }
+                observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        observer.observe(el);
-    });
-    
-    // Specifically observe the proficiency section to start sparkles
-    const proficiencySection = document.getElementById('proficiency');
-    if (proficiencySection) observer.observe(proficiencySection);
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 }
 
-// Initialize all functionality
+/**
+ * Navigation Smoothing
+ */
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const target = document.querySelector(targetId);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+}
+
+// Global Initialization
 document.addEventListener('DOMContentLoaded', () => {
-    createParticles();
-    setupSmoothScroll();
-    setupScrollAnimations();
-    setupNavScroll();
+    initParticles();
+    initProfileUnlock();
+    initScrollEffects();
+    initSmoothScroll();
 });
