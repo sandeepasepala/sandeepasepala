@@ -147,10 +147,37 @@ function initSmoothScroll() {
     });
 }
 
+/**
+ * Mobile Menu Logic
+ */
+function initMobileMenu() {
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const close = document.getElementById('mobile-menu-close');
+    const menu = document.getElementById('mobile-menu');
+    const links = document.querySelectorAll('.mobile-nav-link');
+
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', () => {
+        menu.classList.remove('translate-x-full');
+    });
+
+    const closeMenu = () => {
+        menu.classList.add('translate-x-full');
+    };
+
+    if (close) close.addEventListener('click', closeMenu);
+    
+    links.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+}
+
 // Global Initialization
 document.addEventListener('DOMContentLoaded', () => {
     initParticles();
     initProfileUnlock();
     initScrollEffects();
     initSmoothScroll();
+    initMobileMenu();
 });
